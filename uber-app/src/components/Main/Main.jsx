@@ -25,7 +25,6 @@ export const Main = () => {
                             <Navigate to="/solicitudes" />
                     } />
                 </Routes>
-                <AppRunDeposit/>
             </div>
         </>
     )
