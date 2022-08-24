@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { Login } from '../Login/Login'
+import AppRunDeposit from '../AppRunDeposit';
+
 
 export const Main = () => {
     const [token, setToken] = useState();
@@ -23,6 +25,7 @@ export const Main = () => {
                             <Navigate to="/solicitudes" />
                     } />
                 </Routes>
+                <AppRunDeposit/>
             </div>
         </>
     )
