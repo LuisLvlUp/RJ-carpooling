@@ -1,6 +1,6 @@
 import * as React from 'react'
 import axios from "axios";
-import AppDeposit from './componetDeposit/deposit/AppDeposit';
+import AppDeposit from './deposit/AppDeposit';
 
 
 
