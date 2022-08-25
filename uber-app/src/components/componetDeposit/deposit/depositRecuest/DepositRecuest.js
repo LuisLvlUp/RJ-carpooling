@@ -38,10 +38,10 @@ export default function DepositRecuest({ todos, setrecoleccion, handleOpen }) {
               </Box>
               :
               todos.map((todo, index) => (
-                <>
+                <React.Fragment key={todo._id}>
                   <Divider />
-                  <RListItem todo={todo} key={index} datos={setrecoleccion} handleOpen={handleOpen} />
-                </>
+                  <RListItem todo={todo} datos={setrecoleccion} handleOpen={handleOpen} />
+                  </React.Fragment>
               ))
               }
             </List>
