@@ -19,9 +19,9 @@ console.log(state);
     }
 
     const handleStatePetition = (peticio) => {
-        setpruevaverificacion({ ...pruevaverificacion, deposit_status: peticio ,user_id : {...user_id, verification_status: false} })
+        setpruevaverificacion({ ...pruevaverificacion, deposit_status: peticio })
     }
-console.log(pruevaverificacion);
+
  
 
     return (

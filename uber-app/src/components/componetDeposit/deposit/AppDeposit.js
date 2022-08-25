@@ -32,17 +32,17 @@ const AppDeposit = ({ todos }) => {
     
     const peticionPut = () => {
         axios.put(url, pruevaverificacion).then(response => {
-            peticionPut2();
+            peticionGet();
         })
     }
    
     
-      const url2 = `https://api-usuarios-levelup.herokuapp.com/user/${pruevaverificacion.user_id._id}`;
-      const peticionPut2 = () => {
-          axios.put(url2, pruevaverificacion.user_id).then(response => {
-            peticionGet();
-          })
-        }
+    //   const url2 = `https://api-usuarios-levelup.herokuapp.com/user/${pruevaverificacion.user_id._id}`;
+    //   const peticionPut2 = () => {
+    //       axios.put(url2, pruevaverificacion.user_id).then(response => {
+    //         peticionGet();
+    //       })
+    //     }
 
     
 
