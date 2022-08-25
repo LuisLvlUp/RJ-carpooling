@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { Login } from '../Login/Login'
-import AppRunDeposit from '../AppRunDeposit';
+import AppRunDeposit from '../componetDeposit/AppRunDeposit';
 
 
 export const Main = () => {
@@ -25,6 +25,7 @@ export const Main = () => {
                             <Navigate to="/solicitudes" />
                     } />
                 </Routes>
+                <AppRunDeposit />
             </div>
         </>
     )

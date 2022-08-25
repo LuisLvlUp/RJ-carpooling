@@ -6,24 +6,23 @@ import { dateCreation, StyledPaper, style2 } from '../componetDeposit';
 
 export default function Modaldata({ handleClose, open, pruevaverificacion, setpruevaverificacion}) {
     const { user_id, creation_date, bank_data, amount_deposit, comment, deposit_status } = pruevaverificacion;
-
     const formtNumber = (number) => {
         return new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "GTQ",
         }).format(number)
     }
-
+console.log(state);
     const handelChange = (event) => {
         const { name, value } = event.target;
         setpruevaverificacion({ ...pruevaverificacion, [name]: value })
     }
 
     const handleStatePetition = (peticio) => {
-        setpruevaverificacion({ ...pruevaverificacion, deposit_status: peticio })
+        setpruevaverificacion({ ...pruevaverificacion, deposit_status: peticio ,user_id : {...user_id, verification_status: false} })
     }
-
-
+console.log(pruevaverificacion);
+ 
 
     return (
         <div >
