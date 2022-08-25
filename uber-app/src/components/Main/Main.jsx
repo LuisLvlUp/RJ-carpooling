@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { Login } from '../Login/Login'
-import AppRunDeposit from '../AppRunDeposit';
-
 
 export const Main = () => {
     const [token, setToken] = useState();
@@ -16,13 +14,37 @@ export const Main = () => {
 
     return (
         <>
-            <Navbar token={token} setToken={setToken} admin={admin} setAdmin={setAdmin} />
             <div style={{ height: '100vh', background: '#00b2bb' }}>
                 <Routes >
                     <Route path='/login&register' element={
                         !token ?
-                            <Login setToken={setToken} setAdmin={setAdmin} /> :
-                            <Navigate to="/solicitudes" />
+                            <Navbar token={token} setToken={setToken} admin={admin} setAdmin={setAdmin}>
+                                <Login setToken={setToken} setAdmin={setAdmin} />
+                            </Navbar>
+                            :
+                            <Navigate to="/solicitudesDeposito" />
+                    } />
+                    <Route path='/solicitudesDeposito' element={
+                        token ?
+                            <Navbar token={token} setToken={setToken} admin={admin} setAdmin={setAdmin}>
+                                {/* Component Child */}
+                            </Navbar>
+                            :
+                            <Navigate to="/login&register" />
+                    } />
+                    <Route path='/solicitudesVerificacion' element={
+                        token ?
+                            <Navbar token={token} setToken={setToken} admin={admin} setAdmin={setAdmin}>
+                                {/* Component Child */}
+                            </Navbar>
+                            :
+                            <Navigate to="/login&register" />
+                    } />
+                    <Route path='*' element={
+                        !token ?
+                            <Navigate to='/login&register' />
+                            :
+                            <Navigate to="/solicitudesDeposito" />
                     } />
                 </Routes>
             </div>
