@@ -29,8 +29,7 @@ const RListItem = ({ todo, datos, handleOpen }) => {
                     </ListItemAvatar>
                     <ListItemText primary={user_id.full_name} secondary={`${dateCreation(creation_date)} ${timeAgo(dateCreation(creation_date))} `} />
                 </ListItemButton>
-            </ListItem>
-            <Divider/>
+            </ListItem> 
         </>
     )
 }

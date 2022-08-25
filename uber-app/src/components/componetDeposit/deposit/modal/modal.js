@@ -4,7 +4,7 @@ import { Divider, Button, TextField, Fade, Backdrop, Grid, Paper } from '@mui/ma
 import Databank from './dataBanc/Databank';
 import { dateCreation, StyledPaper, style2 } from '../componetDeposit';
 
-export default function Modaldata({ handleClose, open, pruevaverificacion, setpruevaverificacion}) {
+export default function Modaldata({ handleClose, open, pruevaverificacion, setpruevaverificacion }) {
     const { user_id, creation_date, bank_data, amount_deposit, comment, deposit_status } = pruevaverificacion;
     const formtNumber = (number) => {
         return new Intl.NumberFormat("en-US", {
@@ -22,7 +22,7 @@ export default function Modaldata({ handleClose, open, pruevaverificacion, setpr
         setpruevaverificacion({ ...pruevaverificacion, deposit_status: peticio })
     }
 
- 
+
 
     return (
         <div >
@@ -129,7 +129,7 @@ export default function Modaldata({ handleClose, open, pruevaverificacion, setpr
                                                     rows={4}
                                                     variant="outlined"
                                                     onChange={handelChange}
-                                                    style={{outline: 'none'}}
+                                                    style={{ outline: 'none' }}
                                                     multiline
 
 
@@ -144,10 +144,10 @@ export default function Modaldata({ handleClose, open, pruevaverificacion, setpr
                                         deposit_status === "pendiente" ?
                                             <Stack spacing={2} direction="row">
                                                 <Button variant="outlined" color="error" onClick={() => handleStatePetition("rechazado")} >
-                                                    Deposito Rechazado
+                                                    Rechazado Deposito
                                                 </Button>
                                                 <Button variant="contained" color="success" onClick={() => handleStatePetition("enviado")} sx={{ mt: 2 }}>
-                                                    Deposito Enviado
+                                                    Enviado Deposito
                                                 </Button>
                                             </Stack >
                                             :
