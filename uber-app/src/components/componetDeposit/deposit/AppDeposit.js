@@ -36,16 +36,6 @@ const AppDeposit = ({ todos }) => {
         })
     }
    
-    
-    //   const url2 = `https://api-usuarios-levelup.herokuapp.com/user/${pruevaverificacion.user_id._id}`;
-    //   const peticionPut2 = () => {
-    //       axios.put(url2, pruevaverificacion.user_id).then(response => {
-    //         peticionGet();
-    //       })
-    //     }
-
-    
-
     const setrecolecciondate = (id) => {
         setrecoleccion(id);
     }
@@ -53,15 +43,12 @@ const AppDeposit = ({ todos }) => {
         if (recoleccion) {
             peticionGet();
         }
-
     }, [recoleccion]);
 
     React.useEffect(() => {
         if (recoleccion) {
             peticionPut()
-           
         }
-
     }, [pruevaverificacion.deposit_status]);
     return (
         <div style={{ height: '100vh', background: '#00b2bb' }}>

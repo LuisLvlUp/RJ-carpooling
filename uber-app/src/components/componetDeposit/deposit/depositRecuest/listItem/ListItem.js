@@ -3,7 +3,7 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
-import { ListItem, ListItemButton, Divider } from '@mui/material';
+import { ListItem, ListItemButton } from '@mui/material';
 import { dateCreation, timeAgo } from '../../componetDeposit';
 
 
@@ -20,7 +20,7 @@ const RListItem = ({ todo, datos, handleOpen }) => {
 
     return (
         <>
-            <ListItem>
+            <ListItem >
                 <ListItemButton onClick={data}>
                     <ListItemAvatar>
                         <Avatar alt={user_id.full_name} src={user_id.profile_picture} >
