@@ -1,17 +1,10 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
+import { Grid, Modal, Box } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-import Modal from '@mui/material/Modal';
-import { Grid } from '@mui/material';
+import { styleCarga } from '../componetDeposit';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
 
-  p: 4,
-};
+
 
 export default function CargaModal({ handleClose, open }) {
 
@@ -21,7 +14,7 @@ export default function CargaModal({ handleClose, open }) {
         open={open}
         onClose={handleClose}
       >
-        <Box sx={style}>
+        <Box sx={styleCarga}>
         <Grid container
           justify="center"
           alignItems="center"

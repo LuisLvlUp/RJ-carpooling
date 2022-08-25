@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Stack, Avatar, Modal, Typography, Box } from '@mui/material';
-import { Divider, Button, TextField, Fade, Backdrop, Grid, Paper } from '@mui/material';
+import { Divider, Button, TextField, Fade, Backdrop, Grid } from '@mui/material';
 import Databank from './dataBanc/Databank';
 import { dateCreation, StyledPaper, style2 } from '../componetDeposit';
 

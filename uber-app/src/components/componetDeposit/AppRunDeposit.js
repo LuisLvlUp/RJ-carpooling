@@ -23,8 +23,7 @@ function AppRunDeposit() {
   }, []);
   return (
     <div>
-      {!todos ? <h1> cargando </h1> : <AppDeposit todos={todos} />}
-
+      <AppDeposit todos={todos} />
     </div>
   );
 }

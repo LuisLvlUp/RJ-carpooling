@@ -52,3 +52,12 @@ export const style2 = {
     boxShadow: 24,
     p: 4,
 };
+
+export const styleCarga = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  
+    p: 4,
+  };
