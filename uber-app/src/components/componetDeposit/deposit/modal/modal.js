@@ -12,7 +12,7 @@ export default function Modaldata({ handleClose, open, pruevaverificacion, setpr
             currency: "GTQ",
         }).format(number)
     }
-console.log(state);
+
     const handelChange = (event) => {
         const { name, value } = event.target;
         setpruevaverificacion({ ...pruevaverificacion, [name]: value })

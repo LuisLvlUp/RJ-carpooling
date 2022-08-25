@@ -18,11 +18,11 @@ import HomeIcon from '@mui/icons-material/Home';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import LoginIcon from '@mui/icons-material/Login';
 import { AppBar, DrawerHeader, Drawer } from './Navbar-styles'
-import { Logout } from '@mui/icons-material';
+import { AppRegistration, Logout } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-export const Navbar = ({ token, setToken, admin, setAdmin }) => {
+export const Navbar = ({ token, setToken, admin, setAdmin, children }) => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const handleDrawerOpen = () => {
@@ -47,40 +47,103 @@ export const Navbar = ({ token, setToken, admin, setAdmin }) => {
         });
     }
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar position="fixed" open={open} sx={{ bgcolor: '#d7ecf1' }}>
-                <Toolbar>
-                    <IconButton
-                        aria-label="open drawer"
-                        onClick={handleDrawerOpen}
-                        edge="start"
-                        sx={{
-                            color: '#00b2bb',
-                            marginRight: 5,
-                            ...(open && { display: 'none' }),
-                        }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h5" noWrap component="div" sx={{ color: '#00b2bb' }}>
-                        Uber
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Drawer variant="permanent" open={open} >
-                <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
-                </DrawerHeader>
-                <Divider />
-                <List>
-                    <ListItem disablePadding sx={{ display: 'block' }}>
-                        {
-                            (token && admin === true) ?
-                                <>
-                                    <Link to="/home" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
+        <>
+            <Box sx={{ display: 'flex' }}>
+                <CssBaseline/>
+                <AppBar position="absolute" open={open} sx={{ bgcolor: '#d7ecf1', ...((open && token) && {paddingLeft: '25px!important'})}}>
+                    <Toolbar style={{paddingRight: '10px!important'}}>
+                        <IconButton
+                            aria-label="open drawer"
+                            onClick={handleDrawerOpen}
+                            edge="start"
+                            sx={{
+                                color: '#00b2bb',
+                                marginRight: 5,
+                                ...(open && { display: 'none' }),
+                            }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h5" noWrap component="div" sx={{ color: '#00b2bb' }}>
+                            Uber
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <Drawer variant="permanent" open={open} PaperProps={{...((open && token) && {sx: { width: '280px!important', zIndex: '10000!important' }})}}>
+                    <DrawerHeader>
+                        <IconButton onClick={handleDrawerClose}>
+                            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                        </IconButton>
+                    </DrawerHeader>
+                    <Divider />
+                    <List>
+                        <ListItem disablePadding sx={{ display: 'block' }}>
+                            {
+                                (token && admin === true) ?
+                                    <>
+                                        <Link to="/solicitudesDeposito" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
+                                            <ListItemButton
+                                                sx={{
+                                                    minHeight: 48,
+                                                    justifyContent: open ? 'initial' : 'center',
+                                                    px: 2.5
+                                                }}
+                                            >
+                                                <ListItemIcon
+                                                    sx={{
+                                                        minWidth: 0,
+                                                        mr: open ? 3 : 'auto',
+                                                        justifyContent: 'center',
+                                                    }}
+                                                >
+                                                    <NoteAltIcon sx={{ fontSize: 32 }} />
+                                                </ListItemIcon>
+                                                <ListItemText primary={'Solicitudes de deposito'} sx={{ opacity: open ? 1 : 0 }} />
+                                            </ListItemButton>
+                                        </Link>
+                                        <Link to="/solicitudesVerificacion" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
+                                            <ListItemButton
+                                                sx={{
+                                                    minHeight: 48,
+                                                    justifyContent: open ? 'initial' : 'center',
+                                                    px: 2.5
+                                                }}
+                                            >
+                                                <AppRegistration
+                                                    sx={{
+                                                        minWidth: 0,
+                                                        mr: open ? 3 : 'auto',
+                                                        justifyContent: 'center',
+                                                    }}
+                                                >
+                                                    <NoteAltIcon sx={{ fontSize: 32 }} />
+                                                </AppRegistration>
+                                                <ListItemText primary={'Solicitudes de verificacion'} sx={{ opacity: open ? 1 : 0 }} />
+                                            </ListItemButton>
+                                        </Link>
+                                        <Link to="/login&register" onClick={cerrarSesion} style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
+                                            <ListItemButton
+                                                sx={{
+                                                    minHeight: 48,
+                                                    justifyContent: open ? 'initial' : 'center',
+                                                    px: 2.5
+                                                }}
+                                            >
+                                                <ListItemIcon
+                                                    sx={{
+                                                        minWidth: 0,
+                                                        mr: open ? 3 : 'auto',
+                                                        justifyContent: 'center',
+                                                    }}
+                                                >
+                                                    <Logout sx={{ fontSize: 32 }} />
+                                                </ListItemIcon>
+                                                <ListItemText primary={'Cerrar Sesión'} sx={{ opacity: open ? 1 : 0 }} />
+                                            </ListItemButton>
+                                        </Link>
+                                    </>
+                                    :
+                                    <Link to="/login&register" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
                                         <ListItemButton
                                             sx={{
                                                 minHeight: 48,
@@ -95,78 +158,20 @@ export const Navbar = ({ token, setToken, admin, setAdmin }) => {
                                                     justifyContent: 'center',
                                                 }}
                                             >
-                                                <HomeIcon sx={{ fontSize: 32 }} />
+                                                <LoginIcon sx={{ fontSize: 32 }} />
                                             </ListItemIcon>
-                                            <ListItemText primary={'Home'} sx={{ opacity: open ? 1 : 0 }} />
+                                            <ListItemText primary={'Ingresar'} sx={{ opacity: open ? 1 : 0 }} />
                                         </ListItemButton>
                                     </Link>
-                                    <Link to="/solicitudes" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
-                                        <ListItemButton
-                                            sx={{
-                                                minHeight: 48,
-                                                justifyContent: open ? 'initial' : 'center',
-                                                px: 2.5
-                                            }}
-                                        >
-                                            <ListItemIcon
-                                                sx={{
-                                                    minWidth: 0,
-                                                    mr: open ? 3 : 'auto',
-                                                    justifyContent: 'center',
-                                                }}
-                                            >
-                                                <NoteAltIcon sx={{ fontSize: 32 }} />
-                                            </ListItemIcon>
-                                            <ListItemText primary={'Solicitudes'} sx={{ opacity: open ? 1 : 0 }} />
-                                        </ListItemButton>
-                                    </Link>
-                                    <Link to="/login" onClick={cerrarSesion} style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
-                                        <ListItemButton
-                                            sx={{
-                                                minHeight: 48,
-                                                justifyContent: open ? 'initial' : 'center',
-                                                px: 2.5
-                                            }}
-                                        >
-                                            <ListItemIcon
-                                                sx={{
-                                                    minWidth: 0,
-                                                    mr: open ? 3 : 'auto',
-                                                    justifyContent: 'center',
-                                                }}
-                                            >
-                                                <Logout sx={{ fontSize: 32 }} />
-                                            </ListItemIcon>
-                                            <ListItemText primary={'Cerrar Sesión'} sx={{ opacity: open ? 1 : 0 }} />
-                                        </ListItemButton>
-                                    </Link>
-                                </>
-                                :
-                                <Link to="/login&register" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }} >
-                                    <ListItemButton
-                                        sx={{
-                                            minHeight: 48,
-                                            justifyContent: open ? 'initial' : 'center',
-                                            px: 2.5
-                                        }}
-                                    >
-                                        <ListItemIcon
-                                            sx={{
-                                                minWidth: 0,
-                                                mr: open ? 3 : 'auto',
-                                                justifyContent: 'center',
-                                            }}
-                                        >
-                                            <LoginIcon sx={{ fontSize: 32 }} />
-                                        </ListItemIcon>
-                                        <ListItemText primary={'Ingresar'} sx={{ opacity: open ? 1 : 0 }} />
-                                    </ListItemButton>
-                                </Link>
-
-                        }
-                    </ListItem>
-                </List>
-            </Drawer>
-        </Box>
+                            }
+                        </ListItem>
+                    </List>
+                </Drawer>
+            </Box>
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <DrawerHeader />
+                {children}
+            </Box>
+        </>
     )
 }

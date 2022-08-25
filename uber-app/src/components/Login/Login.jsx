@@ -3,6 +3,7 @@ import { Button, TextField, Box, Typography, Container, GlobalStyles } from '@mu
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { LockOutlined, AppRegistration } from '@mui/icons-material';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = ({ setToken, setAdmin }) => {
 
@@ -10,6 +11,7 @@ export const Login = ({ setToken, setAdmin }) => {
     const correo = useRef();
     const contrasena = useRef();
     const [account, setAccount] = useState();
+    const navigate = useNavigate()
 
     useEffect(() => {
         let verify = JSON.parse(localStorage.getItem('account'));
@@ -29,8 +31,6 @@ export const Login = ({ setToken, setAdmin }) => {
                 localStorage.setItem('identidad', JSON.stringify(user));
                 localStorage.setItem('token', JSON.stringify(user.accessToken));
                 localStorage.setItem('admin', true);
-                setToken(user.accessToken);
-                setAdmin(true);
                 Swal.fire({
                     title: 'Inicio de sesión satisfactorio',
                     icon: 'success',
@@ -39,6 +39,9 @@ export const Login = ({ setToken, setAdmin }) => {
                     timer: 3000,
                     timerProgressBar: true
                 });
+                setToken(user.accessToken);
+                setAdmin(true);
+                navigate('/solicitudesDeposito',{replace: true})
             })
             .catch((error) => {
                 switch (error.code) {
@@ -65,7 +68,6 @@ export const Login = ({ setToken, setAdmin }) => {
                         });
                         break;
                 }
-
             });
     }
 
@@ -89,6 +91,7 @@ export const Login = ({ setToken, setAdmin }) => {
                     timer: 3000,
                     timerProgressBar: true
                 });
+                navigate('/solicitudesDeposito',{replace: true})
             })
             .catch((error) => {
                 switch (error.code) {
@@ -130,7 +133,7 @@ export const Login = ({ setToken, setAdmin }) => {
         <Container component="main" maxWidth="xs" sx={{
             height: '100vh',
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'center'
         }}>
             <GlobalStyles styles={{ input: { color: 'white!important' } }} />
             <Box
