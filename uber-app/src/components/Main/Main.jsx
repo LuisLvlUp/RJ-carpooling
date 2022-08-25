@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Navbar } from '../Navbar/Navbar'
 import { Login } from '../Login/Login'
+import AppRunDeposit from '../componetDeposit/AppRunDeposit'
 
 export const Main = () => {
     const [token, setToken] = useState();
@@ -28,6 +29,7 @@ export const Main = () => {
                         token ?
                             <Navbar token={token} setToken={setToken} admin={admin} setAdmin={setAdmin}>
                                 {/* Component Child */}
+                                <AppRunDeposit />
                             </Navbar>
                             :
                             <Navigate to="/login&register" />

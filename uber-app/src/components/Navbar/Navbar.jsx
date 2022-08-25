@@ -168,7 +168,10 @@ export const Navbar = ({ token, setToken, admin, setAdmin, children }) => {
                     </List>
                 </Drawer>
             </Box>
-            {children}
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                <DrawerHeader />
+                {children}
+            </Box>
         </>
     )
 }
