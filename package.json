@@ -2,7 +2,7 @@
   "name": "uber-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "httpnp://LuisLvlUp.github.io/RJ-carpooling",
+  "homepage": "http://LuisLvlUp.github.io/RJ-carpooling",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
