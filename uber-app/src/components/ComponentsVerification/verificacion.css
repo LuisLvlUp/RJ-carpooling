@@ -10,7 +10,7 @@ body{
     margin-top: 0%;
 }
 .container{
-    
+    max-height: auto;
     display: flex;
     flex-direction: column;
    text-align: center;
@@ -59,13 +59,29 @@ textarea{
     height: 100%;
     margin: 0 auto;
     padding-bottom: 30px;
+    padding-top: 70px;
 }
 .imagePadd{
     width: 100px;
     height: 100%;
     margin: 0 auto;
     padding-bottom: 10px;
+    padding-top: 70px;
+}
+.imagePadd2{
+    width: 100px;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    padding-top: 90px;
+}
+.dpi{
+    width: 180px;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 50px;
     padding-top: 50px;
+
 }
 .container-carousel{
     background-color:#c8eef0;

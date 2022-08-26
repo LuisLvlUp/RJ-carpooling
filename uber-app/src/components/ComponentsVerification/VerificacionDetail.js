@@ -135,13 +135,17 @@ export const VerificacionDetail = ({getUser,setGetUser}) => {
                 <img src="https://drive.google.com/uc?export=view&id=1V2NWN-R7LkwRCloyijjbUnS50O2HyIn3" alt='' ></img>
                 <p>Selfie 1</p>
             </div>
-            <div className='image'>
+            <div className='imagePadd'>
                 <img src="https://drive.google.com/uc?export=view&id=1MElZwUmSfTr_enwnZAnlsDgMIQj6L_b3" alt='' ></img>
                 <p>Pose 2</p>
             </div>
-            <div className='imagePadd'>
+            <div className='imagePadd2'>
                 <img src="https://drive.google.com/uc?export=view&id=1Zk6y56FDQRibih_09hCwicBPNPpZIvJo" alt='' ></img>
                 <p>Selfie 2</p>
+            </div>
+            <div className='dpi'>
+                <img src="https://asisehace.gt/media/DPI_8.png" alt='' ></img>
+                <p>Identificacion</p>
             </div>
 
         </Carousel>

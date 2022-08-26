@@ -4,7 +4,6 @@ import { Navbar } from '../Navbar/Navbar'
 import { Login } from '../Login/Login'
 import AppRunDeposit from '../componetDeposit/AppRunDeposit';
 import { VerificacionUser } from '../ComponentsVerification/VerificacionUser';
-import MainVerificacion from '../ComponentsVerification/main';
 import axios from "axios"
 import { VerificacionDetail } from '../ComponentsVerification/VerificacionDetail';
 
