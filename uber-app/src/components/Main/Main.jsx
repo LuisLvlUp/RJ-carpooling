@@ -65,7 +65,7 @@ export const Main = () => {
         axios.put(`https://api-usuarios-levelup.herokuapp.com/verification/${getUser._id}`, getUser)
         
 
-    }, [getUser])
+    }, [getUser.request_status])
 
     useEffect(() => {
         axios.put(`https://api-usuarios-levelup.herokuapp.com/user/${getUser.user_id._id}`, getUser.user_id)
